@@ -14,7 +14,7 @@ function calculate(principal, rate, time) {
   return p * (r / 100) * t;
 }
 
-// Browser DOM wiring (MUST come before export)
+// Browser DOM wiring
 if (typeof document !== "undefined") {
   document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("calculateBtn");
@@ -40,7 +40,7 @@ if (typeof document !== "undefined") {
   });
 }
 
-// Export for Jasmine tests (Node environment) - ONLY EXPORT HERE
+// Export for Jasmine tests
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { calculate };
 }
