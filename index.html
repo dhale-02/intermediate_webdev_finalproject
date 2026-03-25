@@ -3,12 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <title>Interest Rate Calculator</title>
     <meta
       name="description"
-      content="Free online Interest Rate Calculator — quickly compute simple interest for loans and savings."
+      content="Interest Rate Calculator to compute simple interest quickly and accurately for loans and savings."
     />
-    <title>Interest Rate Calculator</title>
+
+    <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -16,7 +22,7 @@
       <h1>Interest Rate Calculator</h1>
 
       <div class="form-group">
-        <label for="principal">Principal Amount ($)</label>
+        <label for="principal">Principal Amount</label>
         <input type="number" id="principal" placeholder="e.g. 1000" />
       </div>
 
@@ -26,7 +32,7 @@
       </div>
 
       <div class="form-group">
-        <label for="time">Time (Years)</label>
+        <label for="time">Time (years)</label>
         <input type="number" id="time" placeholder="e.g. 2" />
       </div>
 
@@ -35,6 +41,7 @@
       <div class="result" id="result"></div>
     </div>
 
+    <!-- JavaScript (Webpack bundle) -->
     <script src="dist/bundle.js"></script>
   </body>
 </html>
