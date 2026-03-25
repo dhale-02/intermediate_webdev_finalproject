@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Free online Interest Rate Calculator — quickly compute simple interest for loans and savings."
+    />
+    <title>Interest Rate Calculator</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Interest Rate Calculator</h1>
+
+      <div class="form-group">
+        <label for="principal">Principal Amount ($)</label>
+        <input type="number" id="principal" placeholder="e.g. 1000" />
+      </div>
+
+      <div class="form-group">
+        <label for="rate">Annual Interest Rate (%)</label>
+        <input type="number" id="rate" placeholder="e.g. 5" />
+      </div>
+
+      <div class="form-group">
+        <label for="time">Time (Years)</label>
+        <input type="number" id="time" placeholder="e.g. 2" />
+      </div>
+
+      <button id="calculateBtn">Calculate</button>
+
+      <div class="result" id="result"></div>
+    </div>
+
+    <script src="dist/bundle.js"></script>
+  </body>
+</html>
