@@ -1,14 +1,14 @@
-const { calculate } = require('../script.js');
+const { calculate } = require("../src/script.js");
 
-describe('calculate', function () {
+describe("calculate", function () {
 
-  it('should return the correct simple interest for valid numeric inputs', function () {
-    // P=1000, R=5%, T=2 years => Interest = 1000 * (5/100) * 2 = 100
+  it("should return correct simple interest for valid inputs", function () {
+    // 1000 * (5/100) * 2 = 100
     expect(calculate(1000, 5, 2)).toBe(100);
   });
 
-  it('should return null when non-numeric strings are passed as inputs', function () {
-    expect(calculate('abc', 5, 2)).toBeNull();
+  it("should return null for non-numeric string inputs", function () {
+    expect(calculate("abc", 5, 2)).toBeNull();
   });
 
 });
