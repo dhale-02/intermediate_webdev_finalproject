@@ -1,50 +1,57 @@
 /**
  * Calculates simple interest.
- * @param {number|string} principal - The principal amount
- * @param {number|string} rate     - Annual interest rate in percent
- * @param {number|string} time     - Time in years
- * @returns {number|null} - Calculated interest or null for invalid inputs
+ * @param {number|string} principal
+ * @param {number|string} rate - annual interest rate in percent
+ * @param {number|string} time - time in years
+ * @returns {number|null} simple interest or null for invalid input
  */
 function calculate(principal, rate, time) {
-  // Convert all inputs to numbers to prevent TypeErrors
-  principal = Number(principal);
-  rate = Number(rate);
-  time = Number(time);
+  // Convert all inputs to numbers before any calculation
+  const p = Number(principal);
+  const r = Number(rate);
+  const t = Number(time);
 
   // Validate that all values are finite numbers
-  if (isNaN(principal) || isNaN(rate) || isNaN(time)) {
+  if (!Number.isFinite(p) || !Number.isFinite(r) || !Number.isFinite(t)) {
     return null;
   }
 
-  if (principal <= 0 || rate <= 0 || time <= 0) {
+  // Ensure positive values
+  if (p <= 0 || r <= 0 || t <= 0) {
     return null;
   }
 
   // Simple Interest = P * (R/100) * T
-  return principal * (rate / 100) * time;
+  return p * (r / 100) * t;
 }
 
-// Wire up the button click in browser context
-if (typeof document !== 'undefined') {
-  document.addEventListener('DOMContentLoaded', function () {
-    var btn = document.getElementById('calculateBtn');
-    if (btn) {
-      btn.addEventListener('click', function () {
-        var principal = document.getElementById('principal').value;
-        var rate = document.getElementById('rate').value;
-        var time = document.getElementById('time').value;
-        var result = calculate(principal, rate, time);
-        var resultEl = document.getElementById('result');
-        if (result === null) {
-          resultEl.textContent = 'Please enter valid positive numbers.';
-          resultEl.style.color = '#e94560';
-        } else {
-          resultEl.textContent = 'Simple Interest: $' + result.toFixed(2);
-          resultEl.style.color = '#4ecca3';
-        }
-      });
-    }
+// Browser DOM wiring
+if (typeof document !== "undefined") {
+  document.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById("calculateBtn");
+    if (!button) return;
+
+    button.addEventListener("click", () => {
+      const principal = document.getElementById("principal").value;
+      const rate = document.getElementById("rate").value;
+      const time = document.getElementById("time").value;
+
+      const interest = calculate(principal, rate, time);
+      const resultEl = document.getElementById("result");
+      if (!resultEl) return;
+
+      if (interest === null) {
+        resultEl.textContent = "Please enter valid positive numbers.";
+        resultEl.style.color = "#e94560";
+      } else {
+        resultEl.textContent = "Simple Interest: $" + interest.toFixed(2);
+        resultEl.style.color = "#4ecca3";
+      }
+    });
   });
 }
 
-module.exports = { calculate };
+// Export for Jasmine tests (Node environment)
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { calculate };
+}
